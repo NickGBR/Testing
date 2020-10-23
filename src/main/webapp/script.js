@@ -10,13 +10,14 @@ function getById(tableName){
             nameList.innerText = "";
             if (request.status === 200) {
                 const data = JSON.parse(request.responseText);
-                console.log(data.get().type());
-                console.log(data);
-                for (let key in data) {
-                    if (data.hasOwnProperty(key)) {
-                        alert(key + " -> " + data[key]);
-                    }
-                }
+                console.log(data.hasOwnProperty(Object));
+                const text = JSON.stringify(data);
+                
+                let textNode = document.createTextNode(text);
+                let par = document.createElement('p');
+                par.appendChild(textNode);
+                nameList.appendChild(par);
+
             }
         }
     }
